@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchUserDashboard } from '../services/dashboard';
+import { fetchUserDashboard } from '../service/dashboard.js';
 import { useNavigate } from 'react-router-dom';
 import '../style/Dashboard.css';
 
