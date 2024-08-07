@@ -1,0 +1,143 @@
+@import '../style/styles.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+/* Using Roboto Mono for consistent typography */
+
+/* Nutrition Section */
+.nutrition {
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+    font-family: 'Roboto Mono', monospace;
+    text-align: left;
+    margin: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nutrition-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.nutrition-intro,
+.nutrition-summary,
+.nutrition-conclusion {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+    text-align: center;
+    /* Center text for consistency across all screen sizes */
+}
+
+.nutrition-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.nutrition-text {
+    flex: 1 1 60%;
+    padding: 0 var(--spacing-md);
+    /* Add padding for better text framing on smaller screens */
+}
+
+.nutrition-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nutrition-list li {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+}
+
+.list-number {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    border-radius: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.nutrition-images {
+    flex: 1 1 35%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.nutrition-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: var(--shadow-light);
+    object-fit: cover;
+}
+
+.nutrition-image:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-medium);
+}
+
+.nutrition-benefits {
+    list-style-type: none;
+    padding: 0;
+    margin: var(--spacing-lg) 0;
+}
+
+.nutrition-benefits li {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .nutrition-content {
+        flex-direction: column;
+    }
+
+    .nutrition-text,
+    .nutrition-images {
+        flex: 1 1 100%;
+    }
+
+    .nutrition-title,
+    .nutrition-intro,
+    .nutrition-summary,
+    .nutrition-conclusion {
+        text-align: center;
+    }
+
+    .nutrition-image {
+        height: 200px;
+        /* Adjust image height for better mobile display */
+    }
+
+    .list-number {
+        width: 30px;
+        /* Smaller number badges on mobile */
+        height: 30px;
+        font-size: var(--font-size-lg);
+    }
+}

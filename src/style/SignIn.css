@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+@import '../style/styles.css';
+/* Make sure this path is correct */
+
+/* Base styling for the sign-in page */
+.signin-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+    font-family: 'Roboto Mono', monospace;
+    /* Consistent monospaced font for tech aesthetic */
+}
+
+/* Card-like container */
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Responsive width */
+    max-width: 450px;
+    /* Optimal width for sign-in forms */
+    padding: var(--spacing-xl);
+    background-color: var(--color-secondary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    border-radius: 8px;
+    /* Slightly rounded corners for a modern look */
+    gap: var(--spacing-lg);
+    box-sizing: border-box;
+    /* Include padding and border in width calculation */
+    margin: var(--spacing-md);
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Ensure form uses full container width */
+}
+
+/* Styling for form inputs and labels */
+.signin-form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.signin-form-group label {
+    display: block;
+    color: var(--color-text-muted);
+    /* Softer color for labels */
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.signin-form-group input {
+    width: 90%;
+    padding: var(--spacing-md);
+    background-color: var(--color-quaternary);
+    border: 1px solid var(--color-quinary);
+    border-radius: 4px;
+    /* Consistently rounded input fields */
+    color: var(--color-text-light);
+}
+
+/* Button styling for sign-in action */
+.signin-cta-button {
+    padding: var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.signin-cta-button:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    /* Subtle lift effect */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .signin-container {
+        padding: var(--spacing-md);
+        margin: var(--spacing-sm);
+    }
+}

@@ -1,0 +1,113 @@
+@import '../style/styles.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+/* Consistent with the Hero section */
+
+/* About Section */
+.about {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background-color: var(--color-secondary);
+    text-align: center;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-subtitle {
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+}
+
+.about-text {
+    flex: 1;
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--font-size-md);
+    color: var(--color-text-light);
+    line-height: 1.8;
+    /* Slightly reduced for better readability */
+    margin-bottom: var(--spacing-md);
+}
+
+.about-text p {
+    margin-bottom: var(--spacing-md);
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    width: 80%;
+    height: auto;
+    border: 5px solid var(--color-primary);
+}
+
+.image-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--font-size-md);
+    color: var(--color-text-light);
+    margin-top: var(--spacing-xs);
+}
+
+/* Responsive adjustments for better scaling */
+@media (max-width: 1024px) {
+    .about-image img {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .about-text {
+        text-align: center;
+        /* Center text for better mobile presentation */
+        font-size: var(--font-size-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-title {
+        font-size: var(--font-size-lg);
+    }
+
+    .about-subtitle {
+        font-size: var(--font-size-md);
+    }
+
+    .about {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+        /* Add padding to prevent content from touching the edges */
+    }
+}

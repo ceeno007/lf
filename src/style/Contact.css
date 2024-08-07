@@ -1,0 +1,130 @@
+@import '../style/styles.css';
+
+.contact {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background-color: var(--color-secondary);
+    text-align: center;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+    /* Ensure content doesn't touch the edges */
+}
+
+.contact-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-subtitle {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    /* Centering the content */
+    max-width: 100%;
+    /* Prevent overflow */
+}
+
+.contact-form {
+    background-color: var(--color-teritary);
+    padding: var(--spacing-lg);
+    border-radius: 0;
+    max-width: 600px;
+    width: 100%;
+    /* Full width within the container */
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    z-index: 1;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 98%;
+    padding: var(--spacing-md);
+    border: none;
+    border-bottom: 2px solid var(--color-quaternary);
+    background-color: transparent;
+    color: var(--color-text-light);
+    transition: border-color 0.3s;
+}
+
+.form-group label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    color: var(--color-text-muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: transparent;
+}
+
+.form-group input:focus::placeholder,
+.form-group textarea:focus::placeholder {
+    color: var(--color-text-light);
+}
+
+.contact-button {
+    padding: var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-radius: 0;
+    font-size: var(--font-size-md);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+}
+
+.contact-button:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-3px);
+}
+
+.contact-info {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+    color: var(--color-text-light);
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form,
+    .contact-info {
+        width: 90%;
+        /* Better fit for smaller screens */
+        max-width: none;
+        /* Adjust to content width */
+    }
+}

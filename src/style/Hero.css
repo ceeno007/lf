@@ -1,0 +1,111 @@
+@import '../style/styles.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+/* Importing a monospaced, geometric font */
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: var(--spacing-lg);
+    color: #fff;
+}
+
+.hero-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--font-size-title);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    color: #fff;
+}
+
+.hero-subtitle {
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-lg);
+    color: #fff;
+}
+
+.home-button {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home-button:hover {
+    background-color: var(--color-primary-light);
+    transform: scale(1.05);
+}
+
+/* Ensuring the carousel container is always visible and covers the full viewport height */
+.carousel-container {
+    display: block;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Full viewport height */
+    overflow: hidden;
+}
+
+.carousel-container .carousel .slide {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /* Centering content vertically */
+    justify-content: center;
+    /* Centering content horizontally */
+}
+
+.carousel-container .carousel .slide img {
+    width: auto;
+    height: 100vh;
+    object-fit: cover;
+    /* Ensuring images cover the area properly */
+}
+
+/* @media (max-width: 768px) {
+    .background-video {
+        display: none;
+    }
+} */
