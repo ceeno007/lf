@@ -68,3 +68,10 @@ body::-webkit-scrollbar-thumb:active {
   padding: 0 20px;
   /* Adds horizontal padding to containers */
 }
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

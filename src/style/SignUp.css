@@ -101,6 +101,32 @@
     font-weight: 400;
 }
 
+.password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-container input {
+    width: 100%;
+    padding-right: 30px;
+    /* Make space for the icon */
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #666;
+    /* Adjust color as needed */
+}
+
+.password-toggle-icon:hover {
+    color: #333;
+    /* Adjust hover color as needed */
+}
+
+
 @media (max-width: 768px) {
     .register-container {
         padding: 20px;

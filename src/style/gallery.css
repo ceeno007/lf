@@ -1,5 +1,5 @@
-/* Nutrition Section */
-.nutrition {
+/* Gallery Section */
+.gallery {
     padding: var(--spacing-xxl) var(--spacing-lg);
     background-color: var(--color-background);
     color: var(--color-text-light);
@@ -13,58 +13,78 @@
     margin: 0 auto;
 }
 
-.nutrition-title {
+.gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    padding: var(--spacing-sm);
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+.gallery-title {
     font-family: 'Roboto Mono', monospace;
     font-size: var(--font-size-title);
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
-    margin-bottom: var(--spacing-lg);
-    text-align: center;
 }
 
-.nutrition-content {
-    display: flex;
-    flex-wrap: wrap;
+.gallery-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
 }
 
-.nutrition-card {
+.gallery-card {
     background: var(--color-secondary);
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
     cursor: pointer;
     transition: transform 0.2s;
-    flex: 1 1 calc(25% - var(--spacing-lg));
-    margin-bottom: var(--spacing-lg);
+    aspect-ratio: 1;
+    /* Ensures the containers are square */
 }
 
-.nutrition-card:hover {
+.gallery-card:hover {
     transform: scale(1.05);
     box-shadow: var(--shadow-medium);
 }
 
-.nutrition-card h2 {
-    font-size: var(--font-size-md);
-    margin-bottom: var(--spacing-sm);
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    object-fit: cover;
 }
 
-.nutrition-card p {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-dark);
-}
-
-.nutrition-modal {
+.gallery-modal {
     background: var(--color-background);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius);
-    max-width: 800px;
-    margin: 50px auto;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
     box-shadow: var(--shadow-medium);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.nutrition-overlay {
+.gallery-overlay {
     background: rgba(0, 0, 0, 0.75);
     position: fixed;
     top: 0;
@@ -74,6 +94,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    margin-bottom: var(--spacing-lg);
+}
+
+.image-description {
+    font-size: var(--font-size-md);
+    color: var(--color-text-dark);
+    text-align: center;
 }
 
 .modal-close-button {
@@ -87,30 +121,13 @@
     margin-top: var(--spacing-lg);
 }
 
-.more-container {
-    text-align: center;
-    margin-top: var(--spacing-lg);
-}
-
-.more-link {
-    font-size: var(--font-size-md);
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.more-link:hover {
-    color: var(--color-secondary);
-}
-
-
-
 @media (max-width: 768px) {
-    .nutrition-content {
-        flex-direction: column;
+    .gallery-content {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
-    .nutrition-card {
-        flex: 1 1 100%;
+    .gallery-card {
+        aspect-ratio: 1;
+        /* Ensures the containers are square */
     }
 }

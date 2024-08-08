@@ -1,62 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../style/Nutrition.css';
+import { fetchNutritionData } from '../service/blogApiervice.js'; // Corrected the import path
+import { BlocksRenderer } from '@strapi/blocks-react-renderer'; // Import BlocksRenderer
 
 const Nutrition = () => {
-    const nutritionPoints = [
-        'Macronutrient balance: ensuring adequate protein, carbohydrates, and healthy fats to support muscle growth and recovery.',
-        'Caloric intake: Managing caloric intake to support muscle gain or fat loss, depending on individual goals.',
-        'Meal frequency and timing: Eating regular meals to maintain energy levels and support muscle growth.',
-        'Hydration: Adequate water intake to support muscle function and recovery.',
-        'Supplementation: Using natural supplements like protein powder, creatine, and branched-chain amino acids (BCAAs) to support muscle growth and recovery.',
-        'Food quality: emphasizing whole, unprocessed foods like lean meats, fish, eggs, fruits, and vegetables.',
-        'Avoiding processed foods: Limiting or avoiding foods high in sugar, salt, and unhealthy fats.',
-        'Pre- and post-workout nutrition: Fueling the body with the right foods before and after workouts to support performance and recovery.',
-        'Individualized nutrition plans: Creating personalized nutrition plans based on individual needs, goals, and progress.',
-        'Education and support: Providing resources, workshops, and mentorship to help members make informed nutrition choices.'
-    ];
+    const [nutritionData, setNutritionData] = useState([]);
+    const [openDropdown, setOpenDropdown] = useState(null); // Track which dropdown is open
+    const [loading, setLoading] = useState(true); // Track loading state
 
-    const nutritionBenefits = [
-        'Support muscle growth and recovery.',
-        'Enhance overall health and well-being.',
-        'Improve athletic performance.',
-        'Achieve their bodybuilding goals.',
-        'Develop sustainable, healthy habits.'
-    ];
+    useEffect(() => {
+        const getNutritionData = async () => {
+            try {
+                const data = await fetchNutritionData();
+
+                if (data && data.data) {
+                    // Sort data to have the newest blog posts at the top
+                    const sortedData = data.data.sort((a, b) => new Date(b.attributes.publishedAt) - new Date(a.attributes.publishedAt));
+                    setNutritionData(sortedData);
+                } else {
+                    setNutritionData([]); // No data or empty response
+                }
+            } catch (error) {
+                console.error("Error fetching nutrition data:", error);
+                setNutritionData([]); // Set to empty array on error
+            } finally {
+                setLoading(false); // Stop loading
+            }
+        };
+
+        getNutritionData();
+    }, []);
+
+    const toggleDropdown = (id) => {
+        setOpenDropdown(openDropdown === id ? null : id);
+    };
 
     return (
         <section className="nutrition">
             <div className="container">
-                <h1 className="nutrition-title">Nutrition in Natural Bodybuilding</h1>
-                <p className="nutrition-intro">
-                    Nutrition plays a crucial role in natural bodybuilding, and here are some ways it can impact food or drink consumption in the Natural Bodybuilding Association of Nigeria:
-                </p>
+                <h1 className="nutrition-title">Blog</h1>
                 <div className="nutrition-content">
-                    <div className="nutrition-text">
-                        <ul className="nutrition-list">
-                            {nutritionPoints.map((item, index) => (
-                                <li key={index}>
-                                    <div className="list-number">{index + 1}</div>
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
+                    {loading ? (
+                        <p>Loading data...</p>
+                    ) : nutritionData.length > 0 ? (
+                        nutritionData.slice(0, 4).map((item) => (
+                            <div key={item.id} className="nutrition-card">
+                                <div className="nutrition-header" onClick={() => toggleDropdown(item.id)}>
+                                    <h2 className="nutrition-title">
+                                        {item.attributes.Title || 'Untitled Blog Post'}
+                                    </h2>
+                                </div>
+                                {openDropdown === item.id && (
+                                    <div className="nutrition-dropdown">
+                                        <div className="nutrition-description">
+                                            <BlocksRenderer content={item.attributes.Content} />
+                                        </div>
+                                        <p className="nutrition-date">
+                                            Published on: {new Date(item.attributes.publishedAt).toLocaleDateString()}
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
+                        ))
+                    ) : (
+                        <p>No blog posts available.</p>
+                    )}
                 </div>
-                <p className="nutrition-summary">
-                    By emphasizing proper nutrition, the Natural Bodybuilding Association of Nigeria can help its members:
-                </p>
-                <ul className="nutrition-benefits">
-                    {nutritionBenefits.map((item, index) => (
-                        <li key={index}>
-                            <div className="list-number">{index + 1}</div>
-                            {item}
-                        </li>
-                    ))}
-                </ul>
-                <p className="nutrition-conclusion">
-                    This can be achieved through workshops, seminars, online resources, and one-on-one coaching or mentoring.
-                </p>
+                {nutritionData.length > 4 && (
+                    <div className="more-container">
+                        <a href="/all-blogs" className="more-link">More</a>
+                    </div>
+                )}
             </div>
         </section>
     );

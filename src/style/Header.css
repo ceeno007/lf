@@ -7,6 +7,12 @@ body {
     padding: 0;
 }
 
+/* Increasing specificity */
+.header .nav .gallery-link {
+    color: black !important;
+}
+
+
 /* Header Styles */
 .header {
     display: flex;

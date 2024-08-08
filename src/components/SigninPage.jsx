@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { handleSignIn } from '../service/handleSignIn.js';
+
 import ClipLoader from 'react-spinners/ClipLoader';
 import '../style/SignIn.css'; // Assuming your CSS path is correct
 
@@ -14,10 +14,11 @@ const SigninPage = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setLoading(true);
+        setError(''); // Clear previous errors
+
         try {
-            const data = await handleSignIn({ email, password });
-            console.log('Sign-in successful:', data);
-            navigate('/dashboard'); // Redirect to dashboard or intended path
+
+            navigate("/dashboard", { replace: true }); // Redirect to dashboard or intended path
         } catch (err) {
             setError(err.message);
             console.error("Error signing in:", err.message);

@@ -1,48 +1,77 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../style/Events.css';
-// import Carousel1 from '../assets/carousel1.jpg';
-// import Carousel2 from '../assets/carousel2.jpg';
-// import Carousel3 from '../assets/carousel3.jpg';
-
+import { fetchEvents } from '../service/eventApiService';
 
 const Events = () => {
-    const events = [
-        {
-            title: "Ongoing Event 1",
-            date: "August 12, 2024",
-            description: "Join us for an exciting bodybuilding event featuring top athletes.",
-            // image: { Carousel1 }
-        },
-        {
-            title: "Master Class 1",
-            date: "September 5, 2024",
-            description: "Learn from the best in the industry in our exclusive master class.",
-            // image: { Carousel2 }
-        },
-        {
-            title: "Course 1",
-            date: "October 15, 2024",
-            description: "Enroll in our comprehensive course to enhance your bodybuilding skills.",
-            // image: { Carousel3 }
+    const [events, setEvents] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const getEventData = async () => {
+            try {
+                const response = await fetchEvents();
+                // Check if response is an array and has the correct data structure
+                if (Array.isArray(response) && response.length > 0) {
+                    setEvents(response);
+                } else {
+                    setEvents([]); // No events
+                }
+            } catch (err) {
+                setError('Failed to fetch events');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        getEventData();
+    }, []);
+
+    const cleanUrl = (url) => {
+        // Remove quotes and trim whitespace
+        let cleanedUrl = url ? url.replace(/['"]/g, '').trim() : '';
+
+        // Add https:// if the URL doesn't already start with it
+        if (cleanedUrl && !/^https?:\/\//i.test(cleanedUrl)) {
+            cleanedUrl = `https://${cleanedUrl}`;
         }
-    ];
+
+        return cleanedUrl;
+    };
+
+    if (loading) {
+        return <p>Loading events...</p>;
+    }
+
+    if (error) {
+        return <p>{error}</p>;
+    }
 
     return (
         <section className="events">
             <div className="container">
                 <h1 className="events-title">Upcoming Events</h1>
                 <div className="events-list">
-                    {events.map((event, index) => (
-                        <div key={index} className="event-card">
-                            {/* <img src={event.image} alt={event.title} className="event-image" /> */}
-                            <div className="event-info">
-                                <h2 className="event-title">{event.title}</h2>
-                                <p className="event-date">{event.date}</p>
-                                <p className="event-description">{event.description}</p>
-                                <a href="#register" className="cta-button">Register Now</a>
-                            </div>
-                        </div>
-                    ))}
+                    {events.length > 0 ? (
+                        events.map((event) => (
+                            event.attributes.Title && event.attributes.Content ? (
+                                <div key={event.id} className="event-card">
+                                    <div className="event-info">
+                                        <h2 className="event-title">{event.attributes.Title}</h2>
+                                        <p className="event-date">{new Date(event.attributes.Date).toDateString()}</p>
+                                        <p className="event-description">{event.attributes.Content}</p>
+                                        {event.attributes.URL ? (
+                                            <a href={cleanUrl(event.attributes.URL)} className="cta-button" target="_blank" rel="noopener noreferrer">
+                                                Register Now
+                                            </a>
+                                        ) : null}
+                                    </div>
+                                </div>
+                            ) : null
+                        ))
+                    ) : (
+                        <p>No events available.</p>
+                    )}
                 </div>
             </div>
         </section>

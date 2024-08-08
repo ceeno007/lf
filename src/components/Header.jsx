@@ -33,6 +33,7 @@ const Header = () => {
                 <ScrollLink to="about" smooth={true} duration={500} onClick={closeMenu}>About</ScrollLink>
                 <ScrollLink to="events" smooth={true} duration={500} onClick={closeMenu}>Events</ScrollLink>
                 <ScrollLink to="contact" smooth={true} duration={500} onClick={closeMenu}>Contact</ScrollLink>
+                <Link to="/gallery" style={{ color: 'black' }} onClick={closeMenu}>Gallery</Link>
                 <Link to="/signin" className="cta-button" onClick={closeMenu}>Sign in</Link>
             </nav>
             <div className={`menu-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
