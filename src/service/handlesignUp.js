@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { API } from "../constant";
+// import { API } from "../constant";
 
 export const handleSignUp = async (userData) => {
     try {
-        const response = await axios.post(`${API}/auth/local/register`, userData);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/local/register`, userData);
 
         return response.data;
     } catch (error) {

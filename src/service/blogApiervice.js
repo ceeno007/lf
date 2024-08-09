@@ -1,8 +1,8 @@
-import { API_URL } from "./config";
+// import { API_URL } from "./config";
 
 export const fetchNutritionData = async () => {
     try {
-        const response = await fetch(`${API_URL}/api/blogs`); // Keep the endpoint as provided
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/blogs`); // Keep the endpoint as provided
         const data = await response.json();
   
         return data;

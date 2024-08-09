@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { API } from "../constant";
+// import { API } from "../constant";
 
 export const handleSignIn = async (userData) => {
     try {
-        const response = await axios.post(`${API}/auth/local`, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/local`, {
             identifier: userData.email,
             password: userData.password
         });

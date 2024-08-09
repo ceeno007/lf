@@ -7,6 +7,8 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+
+
     const checkAPIs = async () => {
       try {
         // Simulate API calls or add your actual API calls here
