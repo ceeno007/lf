@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import '../style/Nutrition.css';
+import '../style/AllBlogs.css';
 import { fetchNutritionData } from '../service/blogApiervice.js';
 import { Link } from 'react-router-dom';
 
-const Nutrition = () => {
+const AllBlogs = () => {
     const [nutritionData, setNutritionData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -11,7 +11,7 @@ const Nutrition = () => {
         const getNutritionData = async () => {
             try {
                 const data = await fetchNutritionData();
-                console.log("Fetched data:", data); // Log fetched data
+                console.log("Fetched data:", data);
 
                 if (data && data.data) {
                     const sortedData = data.data.sort((a, b) => new Date(b.attributes.publishedAt) - new Date(a.attributes.publishedAt));
@@ -42,49 +42,40 @@ const Nutrition = () => {
     };
 
     return (
-        <section className="nutrition">
+        <section className="all-blogs">
             <div className="container">
-                <h1 className="nutrition-title">Blog</h1>
-                <div className="nutrition-content">
+                <h1 className="all-blogs-title">All Blog Posts</h1>
+                <div className="all-blogs-content">
                     {loading ? (
                         <p>Loading data...</p>
                     ) : nutritionData.length > 0 ? (
-                        nutritionData.slice(0, 3).map((item) => (
-                            <div
+                        nutritionData.map((item) => (
+                            <Link
                                 key={item.id}
-                                className="nutrition-card"
-                                style={{ cursor: 'pointer' }}
+                                to={`/blog/${item.id}`}
+                                state={{ blogData: item }} // Pass blogData via state
+                                className="all-blogs-card"
                             >
-                                <Link
-                                    to={`/blog/${item.id}`}
-                                    className="nutrition-link"
-                                >
-                                    <div className="nutrition-header">
-                                        <h2 className="nutrition-title">
-                                            {item.attributes.Title || 'Untitled Blog Post'}
-                                        </h2>
-                                    </div>
-                                    <div className="nutrition-description">
-                                        {renderContentSnippet(item.attributes.Content)}
-                                    </div>
-                                    <p className="nutrition-date">
-                                        Published on: {new Date(item.attributes.publishedAt).toLocaleDateString()}
-                                    </p>
-                                </Link>
-                            </div>
+                                <div className="all-blogs-header">
+                                    <h2 className="all-blogs-title">
+                                        {item.attributes.Title || 'Untitled Blog Post'}
+                                    </h2>
+                                </div>
+                                <div className="all-blogs-description">
+                                    {renderContentSnippet(item.attributes.Content)}
+                                </div>
+                                <p className="all-blogs-date">
+                                    Published on: {new Date(item.attributes.publishedAt).toLocaleDateString()}
+                                </p>
+                            </Link>
                         ))
                     ) : (
                         <p>No blog posts available.</p>
                     )}
                 </div>
-                {nutritionData.length > 3 && (
-                    <div className="more-container">
-                        <Link to="/all-blogs" className="more-link">More</Link>
-                    </div>
-                )}
             </div>
         </section>
     );
 };
 
-export default Nutrition;
+export default AllBlogs;

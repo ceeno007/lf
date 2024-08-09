@@ -113,7 +113,7 @@ const RegisterPage = () => {
             </button>
           </form>
           <div className="register-footer">
-            <p>Already have an account? <Link to="/signin" className="signin-link">Sign in here</Link></p>
+            <p>Already have an account? <Link to="/signin" className="forgot-password-link">Sign in here</Link></p>
           </div>
         </div>
         <div className="register-info">

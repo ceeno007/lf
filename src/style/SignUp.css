@@ -108,14 +108,13 @@
 }
 
 .password-input-container input {
-    width: 100%;
-    padding-right: 30px;
-    /* Make space for the icon */
+    position: relative;
+
 }
 
 .password-toggle-icon {
     position: absolute;
-    right: 10px;
+    right: 30px;
     cursor: pointer;
     color: #666;
     /* Adjust color as needed */

@@ -55,20 +55,52 @@
 }
 
 .signin-form-group input {
-    width: 90%;
+    width: 100%;
+    /* Full width to ensure alignment with container */
     padding: var(--spacing-md);
     background-color: var(--color-quaternary);
     border: 1px solid var(--color-quinary);
     border-radius: 4px;
     /* Consistently rounded input fields */
     color: var(--color-text-light);
+    box-sizing: border-box;
+    /* Include padding and border in width calculation */
+}
+
+/* Password container styling */
+.password-container {
+    position: relative;
+    width: 100%;
+    /* Match the width of the input fields */
+}
+
+.password-container input {
+    width: 100%;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-md);
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-light);
+}
+
+/* Optional: Styling for eye icon */
+.password-toggle svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Button styling for sign-in action */
 .signin-cta-button {
     padding: var(--spacing-md);
     background-color: var(--color-primary);
-    color: var(--color-text-light);
+    color: var(--color-text-light) !important;
+    /* Ensure text color is white */
     font-size: var(--font-size-lg);
     border-radius: 4px;
     cursor: pointer;

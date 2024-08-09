@@ -5,7 +5,12 @@ import RegisterPage from '../components/RegisterPage';
 import SigninPage from '../components/SigninPage';
 import DashboardPage from '../components/Dashboard';
 import GalleryPage from '../components/gallery';
+import BlogPost from '../components/BlogPost';
+import AllBlogs from '../components/AllBlogs';
 import { getToken } from "../service/authService";
+import MoreEvents from '../components/MoreEvents';
+import ForgotPasswordPage from '../components/ForgotPasswordPage';
+import ResetPasswordPage from '../components/ResetPassword';
 const AppRoutes = () => {
     return (
         <Router>
@@ -16,6 +21,11 @@ const AppRoutes = () => {
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/dashboard" element={getToken() ? <DashboardPage /> : <Navigate to="/signin" />} />
                 <Route path="/gallery" element={<GalleryPage />} />
+                <Route path="/blog/:id" element={<BlogPost />} />
+                <Route path="/all-blogs" element={<AllBlogs />} />
+                <Route path="/more-events" element={<MoreEvents />} />
+                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+                <Route path="/reset-password" element={<ResetPasswordPage />} />
             </Routes>
         </Router>
     );
