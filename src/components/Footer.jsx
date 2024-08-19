@@ -6,14 +6,14 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer-content">
                 <div className="footer-info">
-                    <a href="mailto:info@nnbba.com" className="footer-link">
-                        info@nnbba.com
+                    <a href="mailto:info@Lfreturnme.com" className="footer-link">
+                        info@lfreturnme.com
                     </a>
                     <a href="tel:+234123456789" className="footer-link">
-                        +234 123 456 789
+                        +234 8 023 118 899
                     </a>
                     <p className="footer-address">
-                        123 Fitness Street, Lagos, Nigeria
+                        KM 10 Airport Rd AUSTInspire Business Innovation Centre African University of Science & Technology, Galadimawa
                     </p>
                 </div>
                 <div className="social-media">
@@ -30,7 +30,7 @@ const Footer = () => {
                         <i className="fab fa-youtube"></i>
                     </a>
                 </div>
-                <p>&copy; 2024 Nigeria Natural Bodybuilding Association. All rights reserved.</p>
+                <p>&copy;2024 LFReturnMe. All rights reserved.</p>
             </div>
         </footer>
     );

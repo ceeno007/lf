@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+.faq-container {
+    background-color: var(--color-tertiary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg);
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.faq-header h1 {
+    font-size: var(--font-size-title);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    /* font-family: var(--font-secondary); */
+}
+
+.faq-header p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+}
+
+.faq-list {
+    width: 100%;
+    max-width: 800px;
+}
+
+.faq-card {
+    background: var(--color-secondary);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-light);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.faq-card:hover {
+    transform: scale(1.02);
+    background-color: var(--color-tertiary);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.toggle-icon {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary-light);
+}
+
+.faq-answer {
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-md);
+    color: var(--color-text-muted);
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+/* FAQ Answer Transition */
+.faq-answer-enter {
+    max-height: 0;
+    opacity: 0;
+}
+
+.faq-answer-enter-active {
+    max-height: 100px;
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+}
+
+.faq-answer-exit {
+    max-height: 100px;
+    opacity: 1;
+}
+
+.faq-answer-exit-active {
+    max-height: 0;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-header h1 {
+        font-size: var(--font-size-xxl);
+    }
+
+    .faq-header p {
+        font-size: var(--font-size-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-container {
+        padding: var(--spacing-md);
+    }
+
+    .faq-header h1 {
+        font-size: var(--font-size-title);
+    }
+
+    .faq-header p {
+        font-size: var(--font-size-sm);
+    }
+
+    .faq-question h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    .faq-answer p {
+        font-size: var(--font-size-sm);
+    }
+}

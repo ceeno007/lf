@@ -7,22 +7,28 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
-
     const checkAPIs = async () => {
-      try {
-        // Simulate API calls or add your actual API calls here
-        // await fetch('your-api-endpoint');
-        setLoading(false); // Set to false once API calls are successful
-      } catch (error) {
-        console.error("API error:", error);
-        // Handle error (set loading to false, or show an error message)
-        setLoading(false);
+      while (loading) {
+        try {
+          // Ping Render to wake it up
+          const response = await fetch(process.env.REACT_APP_API_URL);
+          if (response.ok) {
+            setLoading(false); // Set to false once the API call is successful
+            break;
+          } else {
+            console.error("Failed to ping the server, retrying...");
+          }
+        } catch (error) {
+          console.error("API error, retrying...", error);
+        }
+
+        // Wait before retrying
+        await new Promise(resolve => setTimeout(resolve, 3000)); // Retry every 3 seconds
       }
     };
 
     checkAPIs();
-  }, []);
+  }, [loading]);
 
   if (loading) {
     return (

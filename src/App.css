@@ -3,10 +3,10 @@
 
 /* Global Styles */
 body {
-  background-color: var(--color-background);
+  background-color: var(--color-tertiary);
   color: var(--color-text-light);
   font-family: var(--font-primary);
-
+  font-family: 'Roboto Mono', monospace;
   /* Default margin for small screens */
 }
 

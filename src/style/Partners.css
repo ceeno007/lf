@@ -1,0 +1,63 @@
+/* Import Animate.css for animations */
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
+
+/* Partners Section Styles */
+.partners {
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+.partners h2 {
+
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-title);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+}
+
+.partner-logos img {
+    height: 180px;
+    flex: 0 0 auto;
+    transition: transform 0.3s;
+}
+
+.partner-logos img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .partner-logos img {
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .partners h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    .partner-logos img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    .partner-logos img {
+        height: 80px;
+    }
+}

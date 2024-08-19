@@ -13,7 +13,7 @@ const BlogPost = () => {
 
     return (
         <div className="blog-post-container">
-            {/* <Link to="/" className="back-button">Back</Link> */}
+
             <div className="blog-post-content">
                 <h1 className="blog-post-title">{blogData.attributes.Title}</h1>
                 <div className="blog-post-body">

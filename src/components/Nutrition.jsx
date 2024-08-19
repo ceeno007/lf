@@ -11,7 +11,7 @@ const Nutrition = () => {
         const getNutritionData = async () => {
             try {
                 const data = await fetchNutritionData();
-                console.log("Fetched data:", data); // Log fetched data
+                console.log("Fetched data:", data);
 
                 if (data && data.data) {
                     const sortedData = data.data.sort((a, b) => new Date(b.attributes.publishedAt) - new Date(a.attributes.publishedAt));
@@ -57,6 +57,7 @@ const Nutrition = () => {
                             >
                                 <Link
                                     to={`/blog/${item.id}`}
+                                    state={{ blogData: item }} // Pass blogData via state
                                     className="nutrition-link"
                                 >
                                     <div className="nutrition-header">
@@ -79,7 +80,7 @@ const Nutrition = () => {
                 </div>
                 {nutritionData.length > 3 && (
                     <div className="more-container">
-                        <Link to="/all-blogs" className="more-link">More</Link>
+                        <Link to="/all-blogs" className="more-link">More Blogs</Link>
                     </div>
                 )}
             </div>

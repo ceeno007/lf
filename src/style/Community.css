@@ -1,0 +1,104 @@
+/* Updated Community Section Styles */
+.community-section {
+    background: url("https://res.cloudinary.com/dws3lnn4d/image/upload/v1720110502/Community_group_1_aftoke.png") no-repeat center center;
+    background-color: var(--color-background);
+    background-size: cover;
+    padding: var(--spacing-xl) var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.image-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.community-content {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-light);
+
+}
+
+.community-content .title {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-title);
+}
+
+.community-content .content {
+    color: var(--color-primary-light);
+    font-size: var(--font-size-md);
+}
+
+.button.is-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-regular);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button.is-primary:hover {
+    background-color: var(--color-primary-light);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .community-section {
+        padding: var(--spacing-md);
+    }
+
+    .community-content .title {
+        font-size: var(--font-size-xl);
+    }
+
+    .community-content .content {
+        font-size: var(--font-size-md);
+    }
+
+    .image-box {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .community-section {
+        padding: var(--spacing-md);
+    }
+
+    .community-content .title {
+        font-size: var(--font-size-lg);
+    }
+
+    .community-content .content {
+        font-size: var(--font-size-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .community-section {
+        padding: var(--spacing-md);
+    }
+
+    .community-content .title {
+        font-size: var(--font-size-xl);
+    }
+
+    .community-content .content {
+        font-size: var(--font-size-md);
+    }
+}

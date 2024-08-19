@@ -1,0 +1,117 @@
+/* Import Animate.css for animations */
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
+
+/* Testimonials Section Styles */
+.testimonials {
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+
+}
+
+.testimonials h2 {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-title);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.testimonials p,
+.testimonials blockquote,
+.testimonials strong,
+.testimonials span {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.testimonial-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+.testimonial-cards::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Opera */
+}
+
+.testimonial-card {
+    background-color: var(--color-background);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-light);
+    min-width: 280px;
+    max-width: 720px;
+    border-radius: var(--border-radius-md);
+    margin: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: opacity 1s ease-in-out, transform 0.5s;
+}
+
+.testimonial-card .author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: var(--spacing-md);
+}
+
+.testimonial-card .author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: var(--spacing-sm);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .testimonial-card .author img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    .testimonials p,
+    .testimonials blockquote,
+    .testimonials strong,
+    .testimonials span {
+        font-size: var(--font-size-md);
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .testimonial-card {
+        width: 80vw;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    .testimonials p,
+    .testimonials blockquote,
+    .testimonials strong,
+    .testimonials span {
+        font-size: var(--font-size-xs);
+    }
+
+    .testimonial-card {
+        width: 80vw;
+        overflow: hidden;
+    }
+}

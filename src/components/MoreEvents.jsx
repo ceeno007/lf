@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import '../style/MoreEvents.css'; // Updated CSS filename
 import { fetchEvents } from '../service/eventApiService'; // Adjust as necessary
 
@@ -46,7 +45,7 @@ const MoreEvents = () => {
     return (
         <section className="more-events">
             <div className="container">
-                <Link to="/" className="back-button">Back</Link> {/* Back button */}
+
                 <h1 className="more-events-title">More Events</h1>
                 <div className="more-events-list">
                     {events.length > 0 ? (

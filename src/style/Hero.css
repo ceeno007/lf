@@ -58,6 +58,16 @@
     color: #fff;
 }
 
+.button-container {
+    margin-top: var(--spacing-lg);
+    /* Space above buttons */
+    display: flex;
+    justify-content: center;
+    /* Center the buttons horizontally */
+    gap: var(--spacing-md);
+    /* Space between buttons, adjust as needed */
+}
+
 .home-button {
     padding: var(--spacing-md) var(--spacing-lg);
     background-color: var(--color-primary);
