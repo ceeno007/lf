@@ -11,7 +11,7 @@ const Nutrition = () => {
         const getNutritionData = async () => {
             try {
                 const data = await fetchNutritionData();
-                console.log("Fetched data:", data);
+
 
                 if (data && data.data) {
                     const sortedData = data.data.sort((a, b) => new Date(b.attributes.publishedAt) - new Date(a.attributes.publishedAt));

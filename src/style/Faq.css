@@ -94,9 +94,9 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .faq-header h1 {
+    /* .faq-header h1 {
         font-size: var(--font-size-xxl);
-    }
+    } */
 
     .faq-header p {
         font-size: var(--font-size-md);

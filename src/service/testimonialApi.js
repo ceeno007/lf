@@ -1,7 +1,8 @@
 // src/services/testimonialService.js
+import { API_BASE_CMS_URL } from '../service/apiEndpoints.js';
 import axios from 'axios';
 
-const API_URL = `${process.env.REACT_APP_API_URL}/api/testimonies?populate=*`;
+const API_URL = `${API_BASE_CMS_URL}/api/testimonies?populate=*`;
 
 export const getTestimonials = async () => {
     try {

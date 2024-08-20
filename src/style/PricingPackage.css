@@ -34,12 +34,12 @@
     padding: var(--spacing-md);
     flex: 0 0 auto;
     width: 300px;
-
+    text-decoration: none;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .package:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
     cursor: pointer;
 }
 
@@ -57,6 +57,7 @@
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
     font-size: var(--font-size-lg);
+
 
 }
 

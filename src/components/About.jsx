@@ -7,12 +7,10 @@ const About = () => {
         <section className="about">
             <div className="container">
                 <h1 className="about-title">About LfreturnMe</h1>
-                {/* <p className="about-subtitle">
-                    Welcome to the Nigeria Natural Bodybuilding Association (NNBBA), the premier organization dedicated to promoting the sport of natural bodybuilding in Nigeria.
-                </p> */}
+
                 <div className="about-content">
                     <div className="about-image">
-                        <img src='https://res.cloudinary.com/dws3lnn4d/image/upload/v1720443870/IMG-20240417-WA0043_imwtgy.jpg' alt="President of NNBBA" />
+                        <img src='https://res.cloudinary.com/dws3lnn4d/image/upload/v1720443870/IMG-20240417-WA0043_imwtgy.jpg' alt="President of Lfreturnme" />
                         <p className="image-label">Mrs. Adeline Clinton-Agbor</p>
                     </div>
                     <div className="about-text">

@@ -1,8 +1,9 @@
 // src/hooks/useTeamMembers.js
+import { API_BASE_CMS_URL } from '../service/apiEndpoints.js';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_URL = `${process.env.REACT_APP_API_URL}/api/teams?populate=*`;
+const API_URL = `${API_BASE_CMS_URL}/api/teams?populate=*`;
 
 export const getTeamMembers = async () => {
     try {

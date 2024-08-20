@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import ClipLoader from 'react-spinners/ClipLoader';
+import { signInUser } from '../service/signin.js'; // Updated import path
 import '../style/SignIn.css'; // Ensure the path is correct
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
 const SigninPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -18,12 +18,33 @@ const SigninPage = () => {
         setError(''); // Clear previous errors
 
         try {
-            navigate("/dashboard", { replace: true }); // Redirect to dashboard or intended path
+            if (!email || !password) {
+                throw new Error("Email and password are required");
+            }
+
+            // console.log("Submitting credentials:", { email_address: email, password });
+
+            // Ensure credentials object matches the backend's expected structure
+            const credentials = { email_address: email, password };
+
+            const result = await signInUser(credentials); // Use the signInUser utility function
+
+            // Store user data in localStorage
+            // console.log("Sign-in successful:", result);
+            localStorage.setItem("user", JSON.stringify(result));
+            setModalMessage("Signed in successfully! 🎉");
+
+            // Redirect to the dashboard after a short delay
+            setTimeout(() => {
+                // console.log("Redirecting to dashboard");
+                navigate("/dashboard");
+            }, 2000);
+
         } catch (err) {
+            console.error("Error signing in:", err);
             setError(err.message);
-            console.error("Error signing in:", err.message);
         } finally {
-            setLoading(false);
+            setLoading(false); // Ensure loading state is cleared
         }
     };
 
@@ -59,13 +80,14 @@ const SigninPage = () => {
                                 className="password-toggle"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                {showPassword ? 'Hide' : 'Show'}
                             </button>
                         </div>
                     </div>
                     {error && <p className="error">{error}</p>}
+                    {modalMessage && <p className="success">{modalMessage}</p>}
                     <button type="submit" className="cta-button" disabled={loading}>
-                        {loading ? <ClipLoader size={20} color={"#FFFFFF"} /> : 'Sign In'}
+                        {loading ? 'Loading...' : 'Sign In'}
                     </button>
                 </form>
                 <Link to="/forgot-password" className="forgot-password-link">Forgot Password?</Link>

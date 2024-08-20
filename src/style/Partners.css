@@ -43,9 +43,9 @@
 }
 
 @media (max-width: 768px) {
-    .partners h2 {
+    /* .partners h2 {
         font-size: var(--font-size-xl);
-    }
+    } */
 
     .partner-logos img {
         height: 100px;

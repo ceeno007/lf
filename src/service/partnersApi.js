@@ -1,7 +1,8 @@
 // src/service/partnersApi.js
+import { API_BASE_CMS_URL } from '../service/apiEndpoints.js';
 export const fetchPartnersData = async () => {
     try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/partners?populate=*`); // Adjust the endpoint if needed
+        const response = await fetch(`${API_BASE_CMS_URL}/api/partners?populate=*`); // Adjust the endpoint if needed
         const data = await response.json();
         if (data && data.data) {
             // Flatten the nested images to get only the URLs

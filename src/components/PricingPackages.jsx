@@ -3,7 +3,7 @@ import '../style/PricingPackage.css';
 
 const PricingPackages = () => {
     const learnMore = (packageType) => {
-        console.log(`Learn more about: ${packageType}`);
+        // console.log(`Learn more about: ${packageType}`);
         // Implement actual navigation or action logic here
     };
 
@@ -38,8 +38,8 @@ const PricingPackages = () => {
         <section className="pricing-packages">
 
             <div className="packages" id="pricing">
-                <a href="#/signin" target="_blank" rel="noopener noreferrer">
-                    <div className="package" onClick={() => learnMore("Basic")}>
+                <a href="/signin" target="_blank" rel="noopener noreferrer" className="package">
+                    <div onClick={() => learnMore("Basic")}>
                         <h3>Basic Plan</h3>
                         <h4>₦200/month</h4>
                         <p>Annual Payment (Best Value): 2,160 Naira/year (save 10%)</p>
@@ -57,8 +57,8 @@ const PricingPackages = () => {
                         </ul>
                     </div>
                 </a>
-                <a href="#/signin" target="_blank" rel="noopener noreferrer">
-                    <div className="package" onClick={() => learnMore("Premium")}>
+                <a href="/signin" target="_blank" rel="noopener noreferrer" className="package">
+                    <div onClick={() => learnMore("Premium")}>
                         <h3>Premium Plan</h3>
                         <h4>₦800/month</h4>
                         <p>Annual Payment (Best Value): 8,640 Naira/year (save 10%)</p>
@@ -76,8 +76,8 @@ const PricingPackages = () => {
                         </ul>
                     </div>
                 </a>
-                <a href="#/signin" target="_blank" rel="noopener noreferrer">
-                    <div className="package" onClick={() => learnMore("Standard")}>
+                <a href="/signin" target="_blank" rel="noopener noreferrer" className="package">
+                    <div onClick={() => learnMore("Standard")}>
                         <h3>Standard Plan</h3>
                         <h4>₦300/month</h4>
                         <p>Annual Payment (Best Value): 3,100 Naira/year (save 10%)</p>

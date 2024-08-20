@@ -1,0 +1,306 @@
+/* Navbar */
+.navbar {
+    background: var(--color-primary);
+    color: var(--color-background);
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-light);
+}
+
+.navbar-label {
+    font-size: var(--font-size-lg);
+}
+
+.navbar nav button {
+    background: none;
+    border: none;
+    color: var(--color-background);
+    font-size: var(--font-size-md);
+    margin-left: var(--spacing-sm);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navbar nav button:hover {
+    color: var(--color-secondary);
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    padding: var(--spacing-lg);
+}
+
+/* Centering the table container */
+.table-container {
+    margin-top: var(--spacing-lg);
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    max-width: 1400px;
+    /* Max width to centralize within the page */
+    background: var(--color-background);
+    padding: var(--spacing-md);
+
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.items-table th,
+.items-table td {
+    padding: var(--spacing-sm);
+    text-align: left;
+    border-bottom: 1px solid var(--color-tertiary);
+}
+
+.items-table th {
+    font-weight: var(--font-weight-bold);
+}
+
+.items-table img {
+    max-width: 50px;
+    height: auto;
+    border-radius: var(--border-radius-sm);
+}
+
+/* Form Layout */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-md);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--color-tertiary);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-md);
+    box-shadow: var(--shadow-light);
+    transition: box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    box-shadow: var(--shadow-medium);
+}
+
+.input-file {
+    width: 80%;
+    padding: var(--spacing-sm);
+    border: none;
+    background: var(--color-tertiary);
+    cursor: pointer;
+}
+
+.button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--shadow-light);
+    margin-top: var(--spacing-md);
+    align-self: flex-start;
+}
+
+.button:hover {
+    background-color: var(--color-primary-light);
+}
+
+.button-close {
+    background-color: var(--color-tertiary);
+    color: var(--color-primary);
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centering items inside the profile */
+    justify-content: center;
+    /* Centering items inside the profile */
+    max-width: 600px;
+    padding: var(--spacing-lg);
+    background: var(--color-background);
+    border-radius: var(--border-radius-lg);
+
+    margin: var(--spacing-lg) auto;
+    /* Centering the profile horizontally */
+    height: auto;
+    /* Adjust the height based on content */
+}
+
+.profile-picture {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+
+    margin-bottom: var(--spacing-md);
+}
+
+.uploaded-image {
+    width: 128px;
+    height: 128px;
+
+    margin-top: var(--spacing-sm);
+}
+
+/* .profile-details {
+    width: 100%;
+} */
+
+.profile-details div {
+    margin-bottom: var(--spacing-md);
+}
+
+.profile-details label {
+    display: block;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-md);
+}
+
+/* Inputs and Buttons */
+.input {
+    width: 100%;
+    max-width: 500px;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    border: 1px solid var(--color-tertiary);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-md);
+    box-shadow: var(--shadow-light);
+    transition: box-shadow 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--color-background);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-heavy);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Pop-up */
+.popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-medium);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-md);
+    transition: opacity 0.3s ease;
+}
+
+.popup.success {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.popup.failure {
+    background-color: #f44336;
+    color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: var(--spacing-sm);
+    }
+
+    .navbar nav button {
+        font-size: var(--font-size-sm);
+    }
+
+    .items-table th,
+    .items-table td {
+        font-size: var(--font-size-sm);
+    }
+
+    .profile-picture {
+        width: 96px;
+        height: 96px;
+    }
+
+    .uploaded-image {
+        width: 96px;
+        height: 96px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: var(--spacing-md);
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-group input,
+    .form-group select,
+    .input-file {
+        width: 100%;
+    }
+
+    .form-group label {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .input {
+        width: 90%;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .profile {
+        max-width: 100%;
+    }
+}

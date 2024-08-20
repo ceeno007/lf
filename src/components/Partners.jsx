@@ -9,12 +9,12 @@ const Partners = () => {
     useEffect(() => {
         const getPartnersData = async () => {
             const data = await fetchPartnersData();
-            console.log('Fetched partners data:', data); // Log the fetched data to the console
+
 
             if (data.length > 0) {
                 // Print each URL to the console
                 data.forEach(partner => {
-                    console.log('Partner image URL:', partner.url);
+                    // console.log('Partner image URL:', partner.url);
                 });
             }
 
@@ -52,7 +52,7 @@ const Partners = () => {
 
     return (
         <section className="partners">
-            <h2 className="animate-on-scroll" data-animate="animate__fadeInDown">OUR PARTNERS</h2>
+            <h2 className="animate-on-scroll" data-animate="animate__fadeInDown">Our Partners</h2>
             <div className="partner-logos">
                 {partners.length > 0 ? (
                     partners.map((partner) => (

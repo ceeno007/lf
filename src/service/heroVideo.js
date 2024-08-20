@@ -1,7 +1,8 @@
+import { API_BASE_CMS_URL } from '../service/apiEndpoints.js';
 // src/service/VideoApi.js
 export const fetchVideoUrl = async () => {
     try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/hero-videos?populate=*`);
+        const response = await fetch(`${API_BASE_CMS_URL}/api/hero-videos?populate=*`);
         const data = await response.json();
 
         // Extract the video URL from the API response

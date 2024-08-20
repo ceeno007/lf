@@ -33,11 +33,11 @@ const Hero = () => {
                 Your browser does not support the video tag.
             </video>
             <div className="content">
-                <h1 className="hero-title">ONE STOP SHOP FOR LOST AND FOUND ITEMS</h1>
-                <p className="hero-subtitle">Lost or found something important? Join LFReturnMe, where we connect people to reunite lost items with their rightful owners quickly and securely. Our affordable tags and supportive community ensure no cherished item stays lost. Join us today and be part of the solution!</p>
+                <h1 className="hero-title">One-stop for lost and found</h1>
+                <p className="hero-subtitle">Lost or found something? Join LFReturnMe to quickly and securely reconnect lost items with their owners. Our affordable tags and community make sure no cherished item stays lost. Join us today!</p>
                 <div className="button-container">
                     <Link to="/register" className="home-button">Join Now</Link>
-                    <Link to="/found-items" className="home-button">Found an Item</Link>
+                    <Link to="https://tag-details.lfreturnme.com/" className="home-button-found">Found an Item</Link>
                 </div>
             </div>
         </section>

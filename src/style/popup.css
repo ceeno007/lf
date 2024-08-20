@@ -1,0 +1,25 @@
+.popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-medium);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-size-md);
+    transition: opacity 0.3s ease;
+}
+
+.popup.success {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.popup.failure {
+    background-color: #f44336;
+    color: #fff;
+}

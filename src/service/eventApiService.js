@@ -1,8 +1,8 @@
 // import { API_URL } from "./config.js";
-
+import { API_BASE_CMS_URL } from '../service/apiEndpoints.js';
 export const fetchEvents = async () => {
     try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/events`);
+        const response = await fetch(`${API_BASE_CMS_URL}/api/events`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

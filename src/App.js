@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AppRoutes from './routes/AppRoutes';
 import './App.css';
 import { ClipLoader } from 'react-spinners';
-
+import { API_BASE_CMS_URL } from './service/apiEndpoints.js';
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -11,7 +11,9 @@ function App() {
       while (loading) {
         try {
           // Ping Render to wake it up
-          const response = await fetch(process.env.REACT_APP_API_URL);
+          const response = await fetch(
+            API_BASE_CMS_URL
+          );
           if (response.ok) {
             setLoading(false); // Set to false once the API call is successful
             break;

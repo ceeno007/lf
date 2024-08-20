@@ -32,7 +32,7 @@ const Testimonial = () => {
 
     return (
         <section className="testimonials">
-            <h2 className="animate__animated animate__fadeInDown">TESTIMONIALS</h2>
+            <h2 className="animate__animated animate__fadeInDown">Teetimonials</h2>
             <p className="animate__animated animate__fadeInUp">
                 {testimonial.quote}
             </p>

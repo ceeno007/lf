@@ -29,7 +29,7 @@ const Header = () => {
             <div className="logo">
                 <img
                     src='https://res.cloudinary.com/dws3lnn4d/image/upload/v1724068645/logo2_4_2_fde4ve.png'
-                    alt="NNBBA logo"
+                    alt="Lfreturnme logo"
                     style={{ height: '50px', width: '50px' }}
                 />
 
